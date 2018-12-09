@@ -1,0 +1,10 @@
+{
+  "delay": "1500",
+  "ignore": [
+    "buildServer/*",
+    "buildClient/*",
+    ".idea/*",
+    ".git/*",
+    "src/*"
+  ]
+}
