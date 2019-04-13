@@ -21,7 +21,7 @@ devServerExternals['react-dom/server'] = 'commonjs react-dom/server'
 module.exports = merge.smart(common, {
   name: 'server',
   target: 'node',
-  entry: [path.resolve(__dirname, '../../server/render.js')],
+  entry: ['@babel/polyfill', path.resolve(__dirname, '../../server/render.js')],
   output: {
     path: serverPath,
     filename: '[name].js',

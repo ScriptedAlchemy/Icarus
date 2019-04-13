@@ -7,9 +7,6 @@ const { publicPath, clientPath } = config[env.raw.NODE_ENV || 'development']
 
 module.exports = {
   target: 'web',
-
-  entry: ['@babel/polyfill'],
-
   output: {
     path: clientPath,
     filename: '[name].js',
