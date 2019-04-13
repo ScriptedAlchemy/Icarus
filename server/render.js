@@ -27,7 +27,10 @@ export default ({ clientStats }) => async (req, res, next) => {
             ${helmet.meta.toString()}
             ${helmet.link.toString()}
           ${styles}
+          <link rel="shortcut icon" href="data:;base64,=">
+
         </head>
+       
         <body ${helmet.bodyAttributes.toString()}>
           <script>window.REDUX_STATE = ${stateJson}</script>
           <div id="root">${appString}</div>

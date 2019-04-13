@@ -1,4 +1,4 @@
-const ExtractCSSChunks = require('extract-css-chunks-webpack-plugin')
+const ExtractCSSChunks = require('mini-css-extract-plugin')
 const path = require('path')
 
 const babelLoader = {
@@ -48,7 +48,13 @@ const baseStyleLoader = initialLoaders => ({
 })
 
 const cssLoaderClient = baseStyleLoader([
-  ExtractCSSChunks.loader,
+  {
+    loader: ExtractCSSChunks.loader,
+    options: {
+      hmr: true,
+      reloadAll: true,
+    },
+  },
   {
     loader: 'css-loader',
     options: {
