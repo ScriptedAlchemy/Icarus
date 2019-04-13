@@ -1,14 +1,10 @@
 const webpack = require('webpack')
-const ExtractCSSChunks = require('extract-css-chunks-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-
+const ExtractCSSChunks = require('mini-css-extract-plugin')
 const env = require('../env')()
 
-const shared = [
-
-]
+const shared = []
 // Due to instability with webpack 4.20 and up, HardSourceWebpackPlugin will remain disabled
-//env.raw.NODE_ENV === 'development' && shared.push(new HardSourceWebpackPlugin())
+// env.raw.NODE_ENV === 'development' && shared.push(new HardSourceWebpackPlugin())
 
 const client = [
   new webpack.DefinePlugin(env.stringified),
