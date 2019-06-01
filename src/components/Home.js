@@ -1,13 +1,11 @@
 import React from 'react'
-import styles from '../css/Home'
+import styles from '../css/Home.css'
 
-const Home = () =>
+const Home = () => (
   <div className={styles.home}>
     <h1>HOME</h1>
 
-    <h2>
-      NOTE: The top set of links are real links made like this:
-    </h2>
+    <h2>NOTE: The top set of links are real links made like this:</h2>
 
     <span style={{ color: 'rgb(200,200,200)', marginTop: 20 }}>
       HREF STRING:
@@ -41,7 +39,7 @@ onClick: () => dispatch({
         {`inspect the sidebar tabs to see the top set are real <a> tag links and the
         bottom set not, yet the address bar changes for both. The decision is up to you.
         When using the <Link /> component, if you provide an action as the \`href\` prop, you never
-        need to worry if you change the static path segments (e.g: \`/list\`) in the routes passed 
+        need to worry if you change the static path segments (e.g: \`/list\`) in the routes passed
         to \`connectRoutes\`. ALSO: DON'T FORGET TO USE THE BROWSER BACK/NEXT BUTTONS TO SEE THAT WORKING TOO!`}
       </span>
     </div>
@@ -98,5 +96,6 @@ onClick: () => dispatch({
       Middleware
     </a>
   </div>
+)
 
 export default Home

@@ -7,7 +7,7 @@ const common = require('./common.base')
 module.exports = merge.smart(common, {
   name: 'client',
   target: 'web',
-  entry: [path.resolve(__dirname, '../../src/index.js')],
+  entry: ['@babel/polyfill', path.resolve(__dirname, '../../src/index.js')],
   module: {
     rules: clientLoaders,
   },

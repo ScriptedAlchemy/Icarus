@@ -2,14 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Link from 'redux-first-router-link'
 
-import styles from '../css/List'
+import styles from '../css/List.css'
 
-const List = ({ videos }) =>
+const List = ({ videos }) => (
   <div className={styles.list}>
-    {videos.map((video, key) => <Row {...video} key={key} />)}
+    {videos.map((video, key) => (
+      <Row {...video} key={key} />
+    ))}
   </div>
-
-const Row = ({ slug, title, youtubeId, by, color }) =>
+)
+const Row = ({
+  slug, title, youtubeId, by, color,
+}) => (
   <Link
     className={styles.row}
     to={`/video/${slug}`}
@@ -21,13 +25,18 @@ const Row = ({ slug, title, youtubeId, by, color }) =>
     <span className={styles.title}>{title}</span>
 
     <div className={styles.gradient} />
-    <span className={styles.by}>by: {by}</span>
+    <span className={styles.by}>
+      by:
+      {by}
+    </span>
   </Link>
+)
+const youtubeBackground = youtubeId => `url(https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg)`
 
-const youtubeBackground = youtubeId =>
-  `url(https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg)`
-
-const initials = by => by.split(' ').map(name => name[0]).join('')
+const initials = by => by
+  .split(' ')
+  .map(name => name[0])
+  .join('')
 
 const mapState = ({ category, videosByCategory, videosHash }) => {
   const slugs = videosByCategory[category] || []

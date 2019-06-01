@@ -1,5 +1,4 @@
 const ExtractCSSChunks = require('extract-css-chunks-webpack-plugin')
-const path = require('path')
 
 const babelLoader = {
   test: /\.(js|jsx|mjs)$/,
@@ -48,7 +47,13 @@ const baseStyleLoader = initialLoaders => ({
 })
 
 const cssLoaderClient = baseStyleLoader([
-  ExtractCSSChunks.loader,
+  {
+    loader: ExtractCSSChunks.loader,
+    options: {
+      hot: true,
+      reloadAll: true,
+    },
+  },
   {
     loader: 'css-loader',
     options: {

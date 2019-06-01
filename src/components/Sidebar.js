@@ -2,13 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Link, { NavLink } from 'redux-first-router-link'
 import { goToPage } from '../actions'
-import styles from '../css/Sidebar'
+import styles from '../css/Sidebar.css'
 
-const Sidebar = ({ onClick, path }) =>
+const Sidebar = ({ onClick, path }) => (
   <div className={styles.sidebar}>
     <h2>SEO-FRIENDLY LINKS</h2>
 
-    <NavLink activeClassName={styles.active} exact to='/'>HOME</NavLink>
+    <NavLink activeClassName={styles.active} exact to='/'>
+      HOME
+    </NavLink>
 
     <NavLink activeClassName={styles.active} to='/list/db-graphql'>
       DB & GRAPHQL
@@ -20,7 +22,10 @@ const Sidebar = ({ onClick, path }) =>
 
     <NavLink
       activeClassName={styles.active}
-      to={{ type: 'LIST', payload: { category: 'fp' } }}
+      to={{
+        type: 'LIST',
+        payload: { category: 'fp' },
+      }}
     >
       FP
     </NavLink>
@@ -59,11 +64,13 @@ const Sidebar = ({ onClick, path }) =>
       ADMIN
     </NavLink>
   </div>
-
-const active = (currentPath, path) =>
-  currentPath === path ? styles.active : ''
+)
+const active = (currentPath, path) => currentPath === path ? styles.active : ''
 
 const mapDispatch = { onClick: goToPage }
 const mapState = ({ location }) => ({ path: location.pathname })
 
-export default connect(mapState, mapDispatch)(Sidebar)
+export default connect(
+  mapState,
+  mapDispatch,
+)(Sidebar)

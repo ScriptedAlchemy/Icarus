@@ -5,6 +5,20 @@ import { AppContainer } from 'react-hot-loader'
 import App from './components/App'
 import configureStore from './configureStore'
 
+// const context = require.context('./components', true);
+
+// console.log(context.resolve('./Home.js').keys)
+// const getModuleByName = module => {
+//   const moduleFunction = __webpack_modules__[module]
+//   console.log(moduleFunction)
+//   let moduleID
+//   // moduleFunction({}, null, id => {
+//   //   moduleID = id
+//   // })
+//   return moduleID
+// }
+//
+// console.log(getModuleByName(require.resolveWeak('./components/Home.js')))
 const { store } = configureStore(window.REDUX_STATE)
 // To change basename, put there the second param:
 // const { store } = configureStore(window.REDUX_STATE, { basename: '/somewhere' })
@@ -18,7 +32,7 @@ const render = App => {
         <App />
       </Provider>
     </AppContainer>,
-    root
+    root,
   )
 }
 

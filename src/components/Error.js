@@ -1,7 +1,9 @@
 import React from 'react'
-import { notFound } from '../css/Switcher'
+import { notFound } from '../css/Switcher.css'
 
-export default error =>
+export default error => (
   <div className={notFound}>
-    ERROR: {error.message}
+ERROR:
+    {error.message}
   </div>
+)

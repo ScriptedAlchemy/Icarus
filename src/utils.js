@@ -1,15 +1,14 @@
+// eslint-disable-next-line import/no-cycle
 import routesMap from './routesMap'
-// import jwt from 'jsonwebtoken'
 
 export const isServer = typeof window === 'undefined'
 
-export const fetchData = async (path, jwToken) =>
-  fetch(`http://localhost:3000${path}`, {
-    headers: {
-      Accept: 'application/json',
-      Authorization: `Bearer ${jwToken || ''}`
-    }
-  }).then(data => data.json())
+export const fetchData = async (path, jwToken) => fetch(`http://localhost:3000${path}`, {
+  headers: {
+    Accept: 'application/json',
+    Authorization: `Bearer ${jwToken || ''}`,
+  },
+}).then(data => data.json())
 
 export const isAllowed = (type, state) => {
   const role = routesMap[type] && routesMap[type].role // you can put arbitrary keys in routes
@@ -32,7 +31,7 @@ export const isAllowed = (type, state) => {
 const fakeUser = { roles: ['admin'] }
 const userFromState = ({ jwToken, user }) => jwToken === 'real' && fakeUser
 const jwt = {
-  verify: (jwToken, secret) => jwToken === 'real' && fakeUser
+  verify: (jwToken, secret) => jwToken === 'real' && fakeUser,
 }
 
 // NOTE ON COOKIES:

@@ -4,9 +4,9 @@ import DevTools from './DevTools'
 import Sidebar from './Sidebar'
 import Switcher from './Switcher'
 
-import styles from '../css/App'
+import styles from '../css/App.css'
 
-export default () =>
+export default () => (
   <div>
     <div className={styles.app}>
       <Sidebar />
@@ -15,3 +15,4 @@ export default () =>
 
     <DevTools />
   </div>
+)

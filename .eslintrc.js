@@ -64,7 +64,7 @@ module.exports = {
     'no-unused-vars': 1,
     'consistent-return': 1,
     'import/prefer-default-export': 1,
-    'jsx-a11y/no-static-element-interactions': 1,
+    'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'no-case-declarations': 1,
     semi: [2, 'never'],
@@ -147,6 +147,9 @@ module.exports = {
         checkChildContextTypes: true
       }
     ],
-    'jsx-a11y/label-has-for': 0
+    'jsx-a11y/label-has-for': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/iframe-has-title': 0,
+    'jsx-a11y/accessible-emoji': 0
   }
 }

@@ -8,7 +8,7 @@ const components = {
   VIDEO: 'Video',
   ADMIN: 'Admin',
   LOGIN: 'Login',
-  [NOT_FOUND]: 'NotFound'
+  [NOT_FOUND]: 'NotFound',
 }
 
 // NOTES: this is the primary reducer demonstrating how RFR replaces the need
