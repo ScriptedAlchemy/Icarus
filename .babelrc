@@ -28,9 +28,6 @@
           }
         }]
       ],
-      "plugins": [
-        ["universal-import", {"babelServer": true}]
-      ]
     }
   },
   "plugins": [
@@ -39,6 +36,6 @@
     "@babel/plugin-syntax-import-meta",
     ["@babel/plugin-proposal-class-properties", { "loose": false }],
     "@babel/plugin-proposal-json-strings",
-    "universal-import"
+    "@loadable/babel-plugin"
   ]
 }

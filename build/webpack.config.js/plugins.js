@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const ExtractCSSChunks = require('extract-css-chunks-webpack-plugin')
+const LoadablePlugin = require('@loadable/webpack-plugin')
 const env = require('../env')()
 
 const shared = []
@@ -8,6 +9,7 @@ const shared = []
 
 const client = [
   new webpack.DefinePlugin(env.stringified),
+  new LoadablePlugin({ filename: 'stats.json', writeToDisk: true }),
   new webpack.DefinePlugin({
     API_URL: JSON.stringify(require('../config')[env.raw.NODE_ENV].apiUrl),
   }),
@@ -16,9 +18,6 @@ const client = [
 ]
 
 const server = [
-  new webpack.optimize.LimitChunkCountPlugin({
-    maxChunks: 1,
-  }),
   new ExtractCSSChunks({
     hot: env.raw.NODE_ENV === 'development',
     modules: true,

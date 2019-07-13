@@ -23,6 +23,10 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "@loadable/babel-plugin": "^5.10.0",
+    "@loadable/component": "^5.10.1",
+    "@loadable/server": "^5.9.0",
+    "@loadable/webpack-plugin": "^5.7.1",
     "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
     "cookie-parser": "^1.4.4",
@@ -41,7 +45,6 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-redux": "^5.1.0",
-    "react-universal-component": "^3.0.3",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.13.2",
