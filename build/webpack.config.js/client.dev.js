@@ -5,17 +5,14 @@ const baseConfig = require('./client.base')
 
 const config = merge.smart(baseConfig, {
   entry: [
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=false&quiet=false&noInfo=false'
   ],
-  plugins: [
-    new WriteFileWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   performance: {
-    hints: false,
-  },
+    hints: false
+  }
 })
 
 module.exports = config

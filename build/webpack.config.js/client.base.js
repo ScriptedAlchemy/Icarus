@@ -9,14 +9,7 @@ module.exports = merge.smart(common, {
   target: 'web',
   entry: ['@babel/polyfill', path.resolve(__dirname, '../../src/index.js')],
   module: {
-    rules: clientLoaders,
+    rules: clientLoaders
   },
-  plugins: plugins.client,
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-  },
+  plugins: plugins.client
 })
