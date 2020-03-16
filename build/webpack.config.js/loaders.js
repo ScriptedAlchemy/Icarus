@@ -7,10 +7,10 @@ const babelLoader = {
     {
       loader: 'babel-loader',
       options: {
-        cacheDirectory: false
-      }
-    }
-  ]
+        cacheDirectory: false,
+      },
+    },
+  ],
 }
 
 const baseStyleLoader = initialLoaders => ({
@@ -29,9 +29,9 @@ const baseStyleLoader = initialLoaders => ({
     {
       loader: 'sass-loader',
       options: {
-        sourceMap: true
-      }
-    }
+        sourceMap: true,
+      },
+    },
     // {
     //   loader: 'sass-resources-loader',
     //   options: {
@@ -42,7 +42,7 @@ const baseStyleLoader = initialLoaders => ({
     //     ],
     //   },
     // },
-  ]
+  ],
 })
 
 const cssLoaderClient = baseStyleLoader([
@@ -50,8 +50,8 @@ const cssLoaderClient = baseStyleLoader([
     loader: ExtractCSSChunks.loader,
     options: {
       hot: true,
-      reloadAll: true
-    }
+      reloadAll: true,
+    },
   },
   {
     loader: 'css-loader',
@@ -59,9 +59,9 @@ const cssLoaderClient = baseStyleLoader([
       sourceMap: true,
       localsConvention: 'camelCase',
       modules: true,
-      importLoaders: 2
-    }
-  }
+      importLoaders: 2,
+    },
+  },
 ])
 
 const cssLoaderServer = baseStyleLoader([
@@ -70,9 +70,9 @@ const cssLoaderServer = baseStyleLoader([
     options: {
       localsConvention: 'camelCase',
       importLoaders: 2,
-      modules: true
-    }
-  }
+      modules: true,
+    },
+  },
 ])
 
 const urlLoaderClient = {
@@ -80,16 +80,16 @@ const urlLoaderClient = {
   loader: 'url-loader',
   options: {
     limit: 10000,
-    name: '[name].[hash:8].[ext]'
-  }
+    name: '[name].[hash:8].[ext]',
+  },
 }
 
 const urlLoaderServer = {
   ...urlLoaderClient,
   options: {
     ...urlLoaderClient.options,
-    emitFile: false
-  }
+    emitFile: false,
+  },
 }
 
 const fileLoaderClient = {
@@ -99,10 +99,10 @@ const fileLoaderClient = {
       loader: 'file-loader',
       options: {
         name: '[name].[hash:7].[ext]',
-        publicPath: '/static/'
-      }
-    }
-  ]
+        publicPath: '/static/',
+      },
+    },
+  ],
 }
 
 const fileLoaderServer = {
@@ -113,24 +113,24 @@ const fileLoaderServer = {
       options: {
         name: '[name].[hash:7].[ext]',
         publicPath: '/static/',
-        emitFile: false
-      }
-    }
-  ]
+        emitFile: false,
+      },
+    },
+  ],
 }
 
 // Write css files from node_modules to its own vendor.css file
 const externalCssLoaderClient = {
   test: /\.css$/,
   include: /node_modules/,
-  use: [ExtractCSSChunks.loader, 'css-loader']
+  use: [ExtractCSSChunks.loader, 'css-loader'],
 }
 
 // Server build needs a loader to handle external .css files
 const externalCssLoaderServer = {
   test: /\.css$/,
   include: /node_modules/,
-  loader: 'css-loader/locals'
+  loader: 'css-loader/locals',
 }
 
 // Native ES6 Modules need to be interpreted correctly within webpack
@@ -138,7 +138,7 @@ const externalCssLoaderServer = {
 const mjsLoader = {
   test: /\.mjs$/,
   include: /node_modules/,
-  type: 'javascript/auto'
+  type: 'javascript/auto',
 }
 
 const client = [
@@ -149,9 +149,9 @@ const client = [
       cssLoaderClient,
       urlLoaderClient,
       fileLoaderClient,
-      externalCssLoaderClient
-    ]
-  }
+      externalCssLoaderClient,
+    ],
+  },
 ]
 const server = [
   {
@@ -161,12 +161,12 @@ const server = [
       cssLoaderServer,
       urlLoaderServer,
       fileLoaderServer,
-      externalCssLoaderServer
-    ]
-  }
+      externalCssLoaderServer,
+    ],
+  },
 ]
 
 module.exports = {
   client,
-  server
+  server,
 }

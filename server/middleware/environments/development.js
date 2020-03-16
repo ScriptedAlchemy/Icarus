@@ -11,7 +11,7 @@ module.exports = (express, app, done) => {
   const clientCompiler = compiler.compilers[0]
   const options = {
     publicPath: clientConfig.output.publicPath,
-    writeToDisk: true
+    writeToDisk: true,
   }
 
   console.log(webpackDevMiddleware)
@@ -28,29 +28,7 @@ module.exports = (express, app, done) => {
   // app.use(webpackHotMiddleware(clientCompiler))
 
   // this add hot reloading to the actual node server <3, not required but nice to have
-  app.use(webpackHotServerMiddleware(compiler))
-
-  app.use((err, req, res) =>
-    res.status(404).json({
-      status: 'error',
-      message: err.message,
-      stack:
-        // print a nicer stack trace by splitting line breaks and making them array items
-        (err.stack || '')
-          .split('\n')
-          .map(line => line.trim())
-          .map(line => line.split(path.sep).join('/'))
-          .map(line =>
-            line.replace(
-              process
-                .cwd()
-                .split(path.sep)
-                .join('/'),
-              '.'
-            )
-          )
-    })
-  )
+  // app.use(webpackHotServerMiddleware(compiler))
 
   // once the compile is done, we boot up the actual server with the done() function.
   // This is the same method we run for production as well.

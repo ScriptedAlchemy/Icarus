@@ -32,7 +32,7 @@ const render = App => {
         <App />
       </Provider>
     </AppContainer>,
-    root
+    root,
   )
 }
 

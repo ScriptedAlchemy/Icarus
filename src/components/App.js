@@ -1,8 +1,7 @@
 import React from 'react'
 
-import DevTools from './DevTools'
+import SomeComponent from 'website2/SomeComponent'
 import Sidebar from './Sidebar'
-import Switcher from './Switcher'
 
 import styles from '../css/App.css'
 
@@ -10,9 +9,7 @@ export default () => (
   <div>
     <div className={styles.app}>
       <Sidebar />
-      <Switcher />
+      <SomeComponent />
     </div>
-
-    <DevTools />
   </div>
 )

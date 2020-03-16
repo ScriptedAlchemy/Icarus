@@ -3,7 +3,7 @@ import { notFound } from '../css/Switcher.css'
 
 export default error => (
   <div className={notFound}>
-ERROR:
+    ERROR:
     {error.message}
   </div>
 )

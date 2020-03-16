@@ -11,20 +11,20 @@ const client = [
   new webpack.DefinePlugin(env.stringified),
   new LoadablePlugin({ filename: 'stats.json', writeToDisk: true }),
   new webpack.DefinePlugin({
-    API_URL: JSON.stringify(require('../config')[env.raw.NODE_ENV].apiUrl)
+    API_URL: JSON.stringify(require('../config')[env.raw.NODE_ENV].apiUrl),
   }),
-  new ExtractCSSChunks()
+  new ExtractCSSChunks(),
 ]
 
 const server = [
   new ExtractCSSChunks({}),
   new webpack.DefinePlugin({
-    API_URL: JSON.stringify(require('../config')[env.raw.NODE_ENV].apiUrl)
-  })
+    API_URL: JSON.stringify(require('../config')[env.raw.NODE_ENV].apiUrl),
+  }),
 ]
 
 module.exports = {
   shared,
   client,
-  server
+  server,
 }
