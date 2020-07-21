@@ -39,7 +39,7 @@
     "history": "^4.9.0",
     "hpp": "^0.2.2",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
